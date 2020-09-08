@@ -1,6 +1,6 @@
-<p>
-  add-work-detail works!
-</p>
+<div style="display: flex;justify-content: flex-end;">
+<button type="button" class="btn btn-primary" (click)="goBack()"> Go Back</button>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -8,14 +8,14 @@
     <div class="row">
       <div class="col-md-4">Name: </div>
       <mat-form-field class="col-md-8">
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Enter Name" [(ngModel)]="task.name">
       </mat-form-field>
     </div>
     
     <div class="row">
       <div class="col-md-4">Date</div>
       <mat-form-field class="col-md-8">
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <input matInput [(ngModel)]="task.date" [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -24,28 +24,28 @@
     <div class="row">
       <div class="col-md-4">Work Type</div>
       <mat-form-field class="col-md-8">
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Work Type" [(ngModel)]="task.workType">
       </mat-form-field>
     </div>
     
     <div class="row">
       <div class="col-md-4">Pay</div>
       <mat-form-field class="col-md-8">
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Pay" [(ngModel)]="task.pay">
       </mat-form-field>
     </div>
 
     <div class="row">
       <div class="col-md-4">Description</div>
       <mat-form-field class="col-md-8">
-        <textarea matInput placeholder="Textarea"></textarea>
+        <textarea matInput placeholder="Description...." [(ngModel)]="task.description"></textarea>
       </mat-form-field>
     </div>
 
     <div class="row">
       <div class="col-md-4">Payment Status</div>
       <mat-form-field class="col-md-3">
-        <mat-select placeholder="Select">
+        <mat-select placeholder="Select" [(ngModel)]="task.pay_status">
           <mat-option value="pending">Pending</mat-option>
           <mat-option value="completed">Completed</mat-option>
         </mat-select>
@@ -54,8 +54,8 @@
       
     <div class="row">
       <div class="col-md-12" style="display: flex; justify-content: center;">
-        <button type="button" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-danger">Clear</button>
+        <button type="button" (click)="addTask(task)" class="btn btn-primary">Add</button>
+        <button type="button" (click)="clearTask()" class="btn btn-danger">Clear</button>
         
       </div>
     </div>

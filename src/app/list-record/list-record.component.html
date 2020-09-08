@@ -1,14 +1,23 @@
 <p>
   list-record works!
 </p>
-<app-add-work-detail></app-add-work-detail>
 <br><br>
 <hr>
 <br>
+<div style="display: flex;justify-content:flex-end;">
+  <button type="button" class="btn btn-success" (click)="addRecord()">Add Record</button>
+</div>
 <ag-grid-angular
     style="width: 100%; height: 500px;"
     class="ag-theme-alpine"
+    [modules]="modules"
     [rowData]="allTask | async"
     [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [columnTypes]="columnTypes"
+    [rowHeight]="rowHeight"
+    (gridReady)="onGridReady($event)"
+
+    
     >
 </ag-grid-angular>

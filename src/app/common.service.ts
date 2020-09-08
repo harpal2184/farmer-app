@@ -15,4 +15,8 @@ export class CommonService {
   getAllRecord(): Observable<any> {
     return this.http.get(this.taskUrl);
   }
+
+  sendRecord(task) {
+    return this.http.post(this.taskUrl, task);
+  }
 }
