@@ -1,0 +1,65 @@
+<p>
+  add-work-detail works!
+</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+    <div class="row">
+      <div class="col-md-4">Name: </div>
+      <mat-form-field class="col-md-8">
+        <input matInput placeholder="Input">
+      </mat-form-field>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4">Date</div>
+      <mat-form-field class="col-md-8">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">Work Type</div>
+      <mat-form-field class="col-md-8">
+        <input matInput placeholder="Input">
+      </mat-form-field>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4">Pay</div>
+      <mat-form-field class="col-md-8">
+        <input matInput placeholder="Input">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">Description</div>
+      <mat-form-field class="col-md-8">
+        <textarea matInput placeholder="Textarea"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">Payment Status</div>
+      <mat-form-field class="col-md-3">
+        <mat-select placeholder="Select">
+          <mat-option value="pending">Pending</mat-option>
+          <mat-option value="completed">Completed</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+      
+    <div class="row">
+      <div class="col-md-12" style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger">Clear</button>
+        
+      </div>
+    </div>
+      
+    </div>
+  </div>
+</div>
