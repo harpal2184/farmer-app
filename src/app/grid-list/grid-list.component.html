@@ -1,0 +1,14 @@
+<div style="display: flex;justify-content:flex-end;">
+    <button type="button" class="btn btn-success" (click)="addRecord()">Add Record</button>
+  </div>
+<ag-grid-angular
+    style="width: 100%; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="childData.rowData"
+    [columnDefs]="childData.columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowHeight]="rowHeight"
+    [frameworkComponents]="frameworkComponents"
+    (gridReady)="onGridReady($event)"    
+    >
+</ag-grid-angular>ß

@@ -1,23 +1,26 @@
-<p>
-  list-record works!
-</p>
+<div class="container">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-12">
+     
+      <mat-form-field class="col-md-3">
+        <input matInput [(ngModel)]="filterDate.from" [matDatepicker]="picker1" placeholder="Choose date from">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      
+      
+       <mat-form-field class="col-md-3">
+        <input matInput [(ngModel)]="filterDate.to" [matDatepicker]="picker2" placeholder="Choose date to ">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <button class="btn btn-success" type='button'(click)="filterRecord(filterDate)">Filter Data</button>
+    </div>
+  </div>
+</div>
 <br><br>
 <hr>
 <br>
-<div style="display: flex;justify-content:flex-end;">
-  <button type="button" class="btn btn-success" (click)="addRecord()">Add Record</button>
-</div>
-<ag-grid-angular
-    style="width: 100%; height: 500px;"
-    class="ag-theme-alpine"
-    [modules]="modules"
-    [rowData]="allTask | async"
-    [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef"
-    [columnTypes]="columnTypes"
-    [rowHeight]="rowHeight"
-    (gridReady)="onGridReady($event)"
 
-    
-    >
-</ag-grid-angular>
+
+<app-grid-list [childData]="parentData"></app-grid-list>

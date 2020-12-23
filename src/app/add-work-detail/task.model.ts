@@ -6,4 +6,5 @@ export class Task {
     pay: String;
     description: String;
     pay_status:String;
+    transaction_type: String;
 }

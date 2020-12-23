@@ -3,7 +3,29 @@
 </div>
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <button type="button" (click)="addRecord('Tushar')">Tushar</button>
+      <button type="button" (click)="addRecord('Tractor')">Tractor</button>
+     
+    
+      
+
+    </div>
+  </div>
+  <div class="row" style="font-size: 14px;">
+    
     <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4">Transaction Alias</div>
+        <mat-form-field class="col-md-3">
+          <mat-select placeholder="Select" [(ngModel)]="task.transaction_type">
+            <mat-option value="crops">Crop Details</mat-option>
+            <mat-option value="workers">Worker Details</mat-option>
+            <mat-option value="tractor">Tractor Details</mat-option>
+            <mat-option value="personal">Personal Details</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
     <div class="row">
       <div class="col-md-4">Name: </div>
@@ -29,12 +51,13 @@
     </div>
     
     <div class="row">
-      <div class="col-md-4">Pay</div>
+      <div class="col-md-4">Amount</div>
       <mat-form-field class="col-md-8">
-        <input matInput placeholder="Pay" [(ngModel)]="task.pay">
+        <input matInput placeholder="Amount" [(ngModel)]="task.amount">
       </mat-form-field>
     </div>
-
+    
+    
     <div class="row">
       <div class="col-md-4">Description</div>
       <mat-form-field class="col-md-8">
@@ -51,11 +74,18 @@
         </mat-select>
       </mat-form-field>
     </div>
-      
+      <style>
+        .btncss {
+          width: 15%;
+          margin: 0 10px;
+          font-size: 14px;
+        }
+      </style>
     <div class="row">
       <div class="col-md-12" style="display: flex; justify-content: center;">
-        <button type="button" (click)="addTask(task)" class="btn btn-primary">Add</button>
-        <button type="button" (click)="clearTask()" class="btn btn-danger">Clear</button>
+        <button type="button" (click)="addTask(task)" class="btn btn-success btncss">Add</button>
+        <button type="button" (click)="clearTask()" class="btn btn-danger btncss">Clear</button>
+        <button type="button" (click)="updateTask(task)" class="btn btn-primary btncss">Update</button>
         
       </div>
     </div>
