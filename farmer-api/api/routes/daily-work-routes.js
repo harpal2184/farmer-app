@@ -3,16 +3,16 @@ module.exports = function(app) {
   var todoList = require('../controllers/daily-work-controller.js');
 
   // todoList Routes
-  app.route('/tasks')
+  app.route('/api/tasks')
     .get(todoList.list_all_tasks)
     .post(todoList.create_a_task);
 
 
-  app.route('/tasks/:taskId')
+  app.route('/api/tasks/:taskId')
     .get(todoList.read_a_task)
     .put(todoList.update_a_task)
     .delete(todoList.delete_a_task);
 
-  app.route('/tasks/filterDatewise')
+  app.route('/api/tasks/filterDatewise')
     .post(todoList.read_date_wise_task)
 };

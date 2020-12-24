@@ -2,30 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import { environment} from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  taskUrl = "http://localhost:3000/tasks";
-
+ 
+  tasksUrl = "/api/tasks";
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { 
   }
   getAllRecord(): Observable<any> {
-    return this.http.get(this.taskUrl);
+    return this.http.get(this.tasksUrl);
   }
 
   sendRecord(task) {
-    return this.http.post(this.taskUrl, task);
+    return this.http.post(this.tasksUrl, task);
   }
 
   editRecord(id){
-    let editUrl = this.taskUrl + '/' + id;
+    let editUrl = this.tasksUrl + '/' + id;
     return this.http.get(editUrl);
   }
 
   deleteRecord(id){
-    let editUrl = this.taskUrl + '/' + id;
+    let editUrl = this.tasksUrl + '/' + id;
     return this.http.delete(editUrl);
   }
 
@@ -37,13 +38,13 @@ export class CommonService {
     });
 
     console.log(task);
-    let editUrl = this.taskUrl + '/' + id;
+    let editUrl = this.tasksUrl + '/' + id;
     return this.http.put(editUrl, task);
   }
 
   filterDateBased(dateData: any) {
     console.log(dateData,"api call");
-    return this.http.post(this.taskUrl + "/filterDatewise", dateData);
+    return this.http.post(this.tasksUrl + "/filterDatewise", dateData);
   }
 
   data:any;
