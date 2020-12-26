@@ -8,7 +8,9 @@ var  bodyParser = require('body-parser');
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://localhost/farmdb'); 
-mongoose.connect('mongodb+srv://harpalmsu:harpal2184@cluster0.boxoc.mongodb.net/Farmerdb?authSource=admin&replicaSet=atlas-fk3w1h-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true');
+// mongoose.connect('mongodb+srv://harpalmsu:harpal2184@cluster0.boxoc.mongodb.net/Farmerdb?authSource=admin&replicaSet=atlas-fk3w1h-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true');
+mongoose.connect('mongodb+srv://harpalmsu:harpal2184@cluster0.boxoc.mongodb.net/Farmerdb?retryWrites=true&w=majority');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
